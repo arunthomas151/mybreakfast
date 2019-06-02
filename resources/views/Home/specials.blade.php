@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="wide smoothscroll wow-animation" lang="en">
+
+<head>
+    <!-- Site Title-->
+    <title>Specials</title>
+    @include('Home.header')
+    <style>
+        .imgBox {
+            border: 1px solid #e0bd4cb0;
+            margin: 1px;
+            padding: 24px;
+            box-shadow: -1px 3px 5px #af9e6a;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Page Header-->
+    <header class="page-header page-header-secondary">
+        @include('Home.homemenu')
+    </header>
+    <section class="section-sm row bg-white row">
+        <h4>Special Offers</h4><br>
+        @foreach ($package as $packages)
+        <div class="col-md-6" style="padding-bottom:45px">
+            <div class="row imgBox">
+                <div class="col-md-4">
+                    <img src="images/package/{{ $packages->pkimage}}" alt="" style=" height:200px" />
+
+                    <img src="images/room/{{ $packages->nrimage}}" alt="" style=" height:200px" />
+                </div>
+                <div class="col-md-4">
+                    <img src="images/breakfast/{{ $packages->bimage}}" alt="" style=" height:200px" />
+
+                    <img src="images/vehicle/{{ $packages->vimage}}" alt="" style=" height:200px" />
+                </div>
+                <div class="col-md-4">
+                        <label><b>Package :</b></label>
+                        <label>{{ $packages->pkinfo }}</label><br>
+                        <label><b>Room :</b></label>
+                        <label>{{ $packages->rname }}</label><br>
+                        <label><b>Breakfast :</b></label>
+                        <label>{{ $packages->bfname }}</label><br>
+                        {{-- <label>{{ $packages->description }}</label><br> --}}
+                        <label><b>Vehicle :</b></label>
+                        <label>{{ $packages->vrno }}</label><br>
+                        <label>{{ $packages->s_name }}</label><br>
+                        <label>{{ $packages->d_name }}</label><br>
+                        <label>{{ $packages->pname }}</label>
+                        <label>{{ $packages->rcontact }}</label><br>
+                        <label>Rs : </label><label>{{ $packages->rent }}</label>
+
+                    <form method="post" action="#">
+                        {{-- <a class="button button-icon button-primary" href="javascript:void(0)"
+                            onclick="openLoginModal();""><span>Book Now</span><span
+                                    class=" icon material-icons-chevron_right"></span></a> --}}
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </section>
+    @include('Home.footer')
+</body>
+
+</html>
